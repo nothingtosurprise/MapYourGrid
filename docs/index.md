@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchLineLengthData() {
     const linesWrapperEl = document.getElementById('stat-lines-wrapper');
     try {
-      const linedataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/line-length.json');
+      const linedataUrl = '/data/line-length.json';
       const resp = await fetch(linedataUrl);
       if (!resp.ok) throw new Error(resp.statusText);
       const data = await resp.json();
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchTowerData() {
     const towersEl = document.getElementById('stat-towers');
     try {
-      const towerdataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/line-length.json');
+      const towerdataUrl = '/data/line-length.json';
       const resp = await fetch(towerdataUrl);
       if (!resp.ok) throw new Error(resp.statusText);
       const { towerCount } = await resp.json();

@@ -348,7 +348,7 @@ Our work improves access to high-quality data on power generation and transmissi
   towerUpdatedEl.textContent = 'Last updated: —';
 
   try {
-    const towerdataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/line-length.json');
+    const towerdataUrl = '/data/line-length.json';
     const resp = await fetch(towerdataUrl);
     if (!resp.ok) throw new Error(resp.statusText);
     const { towerCount: count, updated } = await resp.json();
@@ -374,7 +374,7 @@ async function loadLineLength() {
   updatedEl.textContent  = 'Last updated: —';
 
   try {
-    const lineDataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/line-length.json');
+    const lineDataUrl = '/data/line-length.json';
     const resp = await fetch(lineDataUrl);
     const data = await resp.json();
     const { lengthKm, mediumHighVoltageKm, percentageOfMediumHigh, updated } = data;
@@ -416,7 +416,7 @@ async function loadCommunityStats() {
   communityLineLengthUpdatedEl.textContent = 'Last updated: —';
 
   try {
-    const communityDataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/community-stats.json');
+    const communityDataUrl = '/data/community-stats.json';
     const resp = await fetch(communityDataUrl);
     if (!resp.ok) throw new Error(resp.statusText);
     const data = await resp.json();
@@ -464,7 +464,7 @@ async function loadPlantCapacity() {
     capacityUpdatedEl.textContent = 'Last updated: —';
 
     try {
-      const powerDataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/power-stats.json');
+      const powerDataUrl = '/data/power-stats.json';
       const resp = await fetch(powerDataUrl);
       if (!resp.ok) throw new Error(resp.statusText);
       const { total_capacity_mw, updated } = await resp.json();
@@ -489,7 +489,7 @@ async function loadSubstationCount() {
     substationUpdatedEl.textContent = 'Last updated: —';
 
     try {
-      const powerDataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/power-stats.json');
+      const powerDataUrl = '/data/power-stats.json';
       const resp = await fetch(powerDataUrl);
       if (!resp.ok) throw new Error(resp.statusText);
       const { substation_count, updated } = await resp.json();
@@ -596,7 +596,7 @@ Want to calculate your own progress? Check out this [web interface](https://open
       const lastUpdatedElement = document.getElementById('last-updated');
       
       // The URL to fetch the JSON data from the release
-      const dataUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://github.com/open-energy-transition/MapYourGrid/releases/download/latest-stats/community-stats.json');
+      const dataUrl = '/data/community-stats.json';
       
       async function fetchAndDisplayLeaderboard() {
           try {
