@@ -10,9 +10,9 @@
 </figcaption>
 </div>
 
-These starter kits empower you to learn how to map your first line of the electrical transmission grid. If you ever get stuck with the Starter-Kit or would like to provide feedback, please contact us via our [community chat](https://discord.gg/fBw7ARTUeR) or [via email](mailto:MapYourGrid@openenergytransition.org). A MapYourGrid community member will help you finish your first line and set up your environment.
+These starter kits empower you to map your first line of the electrical transmission grid and other power infrastructure you will find along the way. If you ever get stuck or would like to provide feedback, please contact us via our [community chat](https://discord.gg/fBw7ARTUeR) or [via email](mailto:MapYourGrid@openenergytransition.org). A MapYourGrid community member will help you finish your first line and set up your environment.
 
-We recommend JOSM (Java OpenStreetMap) editor generally, particularly for professional, large-scale grid mapping and to inspect the electrical grid. However, if you only want to make minor edits or leave notes without installing anything, the [iD editor](https://www.openstreetmap.org/edit) provides a user-friendly mapping experience. iD and JOSM can both be combined with [Open Infrastructure Map](https://openinframap.org/). MapComplete provides an optimised workflow for mobile devices for mapping missing tags, such as voltages or capacities. These tools also offer enhanced usability for field mapping tasks and data validation. You can follow our tutorials on this website, or watch our video tutorial for JOSM!
+We recommend JOSM (Java OpenStreetMap) editor generally, particularly for large-scale grid mapping and to inspect the electrical grid. However, if you only want to make minor edits or leave notes without installing anything, the [iD editor](https://www.openstreetmap.org/edit) provides a user-friendly mapping experience. iD and JOSM can both be combined with [Open Infrastructure Map](https://openinframap.org/). MapComplete provides an optimised workflow for mobile devices for mapping missing tags, such as voltages or capacities. These tools also offer enhanced usability for field mapping tasks and data validation. You can follow our tutorials on this website, or watch our video tutorial for JOSM!
 
 **Get started by clicking on one of the OpenStreetMap editors:**
 
