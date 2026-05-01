@@ -179,6 +179,24 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Add full screen button
+L.Control.Fullscreen = L.Control.extend({
+  onAdd() {
+    const btn = L.DomUtil.create('button', 'leaflet-bar leaflet-control');
+    btn.innerHTML = '&#x26F6;';
+    btn.title = 'Toggle fullscreen';
+    btn.style.cssText = 'width:30px;height:30px;cursor:pointer;font-size:14px;line-height:28px;background:white;border:none;';
+    L.DomEvent.disableClickPropagation(btn);
+    L.DomEvent.on(btn, 'click', () =>
+      document.fullscreenElement ? document.exitFullscreen() : map.getContainer().requestFullscreen()
+    );
+    return btn;
+  },
+  onRemove() {},
+});
+new L.Control.Fullscreen({ position: 'topleft' }).addTo(map);
+
+
 // Useless at the moment since the regions layer becomes active anyway at a certain zoom
 const largeCountries = ['BR', 'US', 'CA', 'IN', 'MX', 'AU', 'CN'];
 const zoomThreshold = 5; // Zoom level at which to show regions instead of countries
@@ -717,6 +735,7 @@ setTimeout(() => {
           <li>If it’s enabled but still not working, toggle it off and on again</li>
           <li>Note that hint layers do not work on regional layers. In this case, please load the data onto a national layer.</li>
           <li><a href="https://mapyourgrid.org/starter-kit/">Look into the Starter-Kit</a>
+          <li> Sometimes the overpass server is overloaded, so try again (max 2 times)
         </ol>
       </div>
   `;
