@@ -22,7 +22,8 @@ hide:
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 600px;
+    height: 55vh;
+    min-height: 400px;
     margin: 20px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -1044,6 +1045,10 @@ fetch('../data/countries.geojson')
       const iso  = layer.feature.properties.ISO_A2;
       const name = layer.feature.properties.NAME;
 
+      // Colour when hovered  
+      layer.on('mouseover', () => layer.setStyle({ fillColor: '#3388ff', fillOpacity: 0.3 }));
+      layer.on('mouseout',  () => countriesLayer.resetStyle(layer));
+
       if (iso) countryNameMap[iso.toUpperCase()] = name;
 
       layer.bindPopup(`<b>${name}</b><br>Click to load in JOSM. You need to disable your ad blocker for this to work`);
@@ -1070,10 +1075,15 @@ async function loadRegionsOnce() {
   try {
     const resp = await fetch('../data/regionsv2.geojson');
     const regions = await resp.json();
+
     regionsLayer.addData(regions);
     regionsLayer.eachLayer(layer => {
           const iso3166_2 = layer.feature.properties.ISO_1;
           const name      = layer.feature.properties.NAME;
+
+          // Colour when hovered  
+          layer.on('mouseover', () => layer.setStyle({ fillColor: '#3388ff', fillOpacity: 0.3 }));
+          layer.on('mouseout',  () => regionsLayer.resetStyle(layer));
 
           layer.bindPopup(`<b>${name}</b><br>Click to load in JOSM`);
           layer.on('click', () => 
