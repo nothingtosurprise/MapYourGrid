@@ -708,7 +708,13 @@ async function handleAreaClick(iso, level, layer) {
     }
     else {
        let tpl = await fetchQuery(currentMode, level);
-       tpl = tpl.replace(/\$\{iso\}/g, iso);
+       const wikidata = layer.feature.properties.wikidata;
+       const areaFilter = iso
+          ? `["ISO3166-2"="${iso}"]`
+          : `["wikidata"="${wikidata}"]`;
+       tpl = tpl
+          .replace(/\$\{iso\}/g, iso ?? 'NOMATCH')
+          .replace(/\$\{wikidata\}/g, layer.feature.properties.wikidata ?? 'NOMATCH');
        sendToJosm(tpl, name); 
     }
   } catch (err) {
