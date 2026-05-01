@@ -94,9 +94,6 @@ hide:
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-<!-- SheetJS for in‑browser XLSX parsing. Not used anymore -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
 <!-- Start of script! -->
 <script>
 // ———————————————
@@ -1033,23 +1030,6 @@ function sendToJosm(query, areaName) {
   document.body.appendChild(esriIframe);
   setTimeout(() => document.body.removeChild(esriIframe), 1000);
 }
-
-// Handle zoom events to show/hide the appropriate layers
-map.on('zoomend', function() {
-    const currentZoom = map.getZoom();
-    
-    if (currentZoom >= zoomThreshold) {
-        // When zoomed in enough, hide countries and show regions
-        if (!map.hasLayer(regionsLayer)) {
-            map.addLayer(regionsLayer);
-        }
-    } else {
-        // When zoomed out, hide regions
-        if (map.hasLayer(regionsLayer)) {
-            map.removeLayer(regionsLayer);
-        }
-    }
-});
 
 // ———————————————
 // Base geo layers (countries and regions)
